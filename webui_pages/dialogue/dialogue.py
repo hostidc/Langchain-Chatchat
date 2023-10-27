@@ -74,7 +74,7 @@ def dialogue_page(api: ApiRequest):
                                      ["对话",
                                       "知识库问答",
                                       "搜索引擎问答",
-                                      "自定义Agent问答",
+                                      "Agent问答",
                                       ],
                                      index=0,
                                      on_change=on_mode_change,
@@ -130,7 +130,7 @@ def dialogue_page(api: ApiRequest):
 
         index_prompt = {
             "对话": "llm_chat",
-            "自定义Agent问答": "agent_chat",
+            "Agent问答": "agent_chat",
             "搜索引擎问答": "search_engine_chat",
             "知识库问答": "knowledge_base_chat",
         }
@@ -216,7 +216,7 @@ def dialogue_page(api: ApiRequest):
 
 
 
-        elif dialogue_mode == "自定义Agent问答":
+        elif dialogue_mode == "Agent问答":
             chat_box.ai_say([
                 f"正在思考...",
                 Markdown("...", in_expander=True, title="思考过程", state="complete"),
@@ -224,7 +224,16 @@ def dialogue_page(api: ApiRequest):
             ])
             text = ""
             ans = ""
-            support_agent = ["Azure-OpenAI", "OpenAI", "Anthropic", "Qwen", "qwen-api", "baichuan-api"]  # 目前支持agent的模型
+            support_agent = [  # 目前支持agent的模型
+                "Azure-OpenAI", 
+                "OpenAI", 
+                "Anthropic", 
+                "Qwen", 
+                "qwen-api", 
+                "baichuan-api",
+                "chatglm2-6b-32k-int4"
+                ]
+            st.toast(llm_model)
             if not any(agent in llm_model for agent in support_agent):
                 ans += "正在思考... \n\n <span style='color:red'>该模型并没有进行Agent对齐，请更换支持Agent的模型获得更好的体验！</span>\n\n\n"
                 chat_box.update_msg(ans, element_index=0, streaming=False)
