@@ -1,15 +1,6 @@
 import streamlit as st
 from webui_pages.utils import *
-from st_aggrid import AgGrid, JsCode
-from st_aggrid.grid_options_builder import GridOptionsBuilder
-import pandas as pd
-from server.knowledge_base.utils import get_file_path, LOADER_DICT
-from server.knowledge_base.kb_service.base import get_kb_details, get_kb_file_details
-from typing import Literal, Dict, Tuple
-from configs import (PROMPT_TEMPLATES,ROLE_ROOT_PATH,
-                    EMBEDDING_MODEL, DEFAULT_VS_TYPE,
-                    CHUNK_SIZE, OVERLAP_SIZE, ZH_TITLE_ENHANCE)
-from server.utils import list_embed_models
+from configs import (PROMPT_TEMPLATES,ROLE_ROOT_PATH)
 import os
 import time
 import json
@@ -71,7 +62,7 @@ def role_base_page(api: ApiRequest):
                 placeholder="角色Prompt",
                 key="role_info",
                 height=200, 
-                max_chars=1000,
+                max_chars=3000,
             )
             submit_create_role = st.form_submit_button(
                 "新建",
@@ -118,7 +109,7 @@ def role_base_page(api: ApiRequest):
                 placeholder="角色Prompt",
                 value=st.session_state["selected_role_info"],
                 height=200, 
-                max_chars=1000,
+                max_chars=3000,
                 key="role_info",
             )
             submit_edit_role = st.form_submit_button(
