@@ -231,6 +231,7 @@ def dialogue_page(api: ApiRequest):
                 "Qwen", 
                 "qwen-api", 
                 "baichuan-api",
+                "chatglm2-6b-int4",
                 "chatglm2-6b-32k-int4"
                 ]
             st.toast(llm_model)
