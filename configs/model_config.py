@@ -41,6 +41,7 @@ MODEL_PATH = {
         # 以下部分模型并未完全测试，仅根据fastchat和vllm模型的模型列表推定支持
         # "chatglm-6b": "THUDM/chatglm-6b",
         # "chatglm2-6b": "THUDM/chatglm2-6b",
+        "chatglm3-6b": "THUDM/chatglm3-6b",
         "chatglm2-6b-int4": "/content/drive/MyDrive/LLM/chatglm2-6b-int4",
         # "chatglm2-6b-32k": "THUDM/chatglm2-6b-32k",
 
@@ -98,7 +99,8 @@ EMBEDDING_MODEL = "piccolo-base-zh" # 可以尝试最新的嵌入式sota模型�
 EMBEDDING_DEVICE = "auto"
 
 # LLM 名称
-LLM_MODEL = "chatglm2-6b-int4"
+LLM_MODEL = "chatglm3-6b"
+# LLM_MODEL = "chatglm2-6b-int4"
 # LLM_MODEL = "Qwen-7B-Chat-int4"
 
 # LLM 运行设备。设为"auto"会自动检测，也可手动设定为"cuda","mps","cpu"其中之一。
