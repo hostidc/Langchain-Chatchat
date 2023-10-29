@@ -99,8 +99,8 @@ EMBEDDING_MODEL = "piccolo-base-zh" # 可以尝试最新的嵌入式sota模型�
 EMBEDDING_DEVICE = "auto"
 
 # LLM 名称
-LLM_MODEL = "chatglm3-6b"
-# LLM_MODEL = "chatglm2-6b-int4"
+# LLM_MODEL = "chatglm3-6b"
+LLM_MODEL = "chatglm2-6b-int4"
 # LLM_MODEL = "Qwen-7B-Chat-int4"
 
 # LLM 运行设备。设为"auto"会自动检测，也可手动设定为"cuda","mps","cpu"其中之一。
